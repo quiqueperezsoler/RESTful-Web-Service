@@ -1,0 +1,543 @@
+{
+	"info": {
+		"_postman_id": "03171045-da53-43a4-8c1d-c399f366f396",
+		"name": "UPMSocial",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8080/UPMSocial/usuarios",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"descripcion\": \"Ahora deberia no devolver el recurso creado\",\n    \"nombre\": \"Daniel\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/UPMSocial/api/usuarios",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"UPMSocial",
+						"api",
+						"usuarios"
+					]
+				},
+				"description": "Obtener una lista de todos los usuarios de la red "
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/UPMSocial/usuarios",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"descripcion\": \"Cambiado el prepare statement\",\n    \"nombre\": \"Javi\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/UPMSocial/api/usuarios",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"UPMSocial",
+						"api",
+						"usuarios"
+					]
+				},
+				"description": "Añadir un usuario nuevo "
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/UPMSocial/api/usuarios/2",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/UPMSocial/api/usuarios/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"UPMSocial",
+						"api",
+						"usuarios",
+						"2"
+					]
+				},
+				"description": "Ver los datos básicos de un usuario "
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/UPMSocial/estados",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"idUsuario\": \"10\",\n    \"texto\": \"Primer intento de post mensaje\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/UPMSocial/api/estados",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"UPMSocial",
+						"api",
+						"estados"
+					]
+				},
+				"description": "Publicar un nuevo estado\n\nCiertas operaciones sobre estados, consultas de amigos, etc., obviamente sólo pueden realizarse sobre estados propios, amigos propios, etc. Sin embargo, la práctica no pide que se implemente ningún tipo de autenticación ni de autorización. Basta con que se identifique al usuario que está realizando la operación (i.e. al que se refiere la operación) a través de un “path param”, un “query param” o del cuerpo del mensaje. "
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/UPMSocial/api/estados/5",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/UPMSocial/api/estados/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"UPMSocial",
+						"api",
+						"estados",
+						"5"
+					]
+				},
+				"description": "Eliminar un estado "
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/UPMSocial/api/estados",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/UPMSocial/api/estados?offset=1&count=2&iniDate=2000-01-01&lastDate=2018-05-25",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"UPMSocial",
+						"api",
+						"estados"
+					],
+					"query": [
+						{
+							"key": "offset",
+							"value": "1"
+						},
+						{
+							"key": "count",
+							"value": "2"
+						},
+						{
+							"key": "iniDate",
+							"value": "2000-01-01"
+						},
+						{
+							"key": "lastDate",
+							"value": "2018-05-25"
+						}
+					]
+				},
+				"description": "Obtener una lista de todos los estados de un usuarioy filtrar esa lista por fecha o limitar la cantidad de información obtenida por número de estados (e.g. los 10 primeros elementos, los elementos entre el 11 y el 20, etc.) \n\nSin probar"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/UPMSocial/api/estados/recuento?iniDate=2018-05-15&lastDate=2018-05-25",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/UPMSocial/api/estados/recuento?iniDate=2018-05-15&lastDate=2018-05-25",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"UPMSocial",
+						"api",
+						"estados",
+						"recuento"
+					],
+					"query": [
+						{
+							"key": "iniDate",
+							"value": "2018-05-15"
+						},
+						{
+							"key": "lastDate",
+							"value": "2018-05-25"
+						}
+					]
+				},
+				"description": "Obtener el número de estados publicados por mí en la red social en un determinado periodo (fecha inicio y fin) "
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/UPMSocial/api/amigos?pattern=av",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/UPMSocial/api/amigos?pattern=av",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"UPMSocial",
+						"api",
+						"amigos"
+					],
+					"query": [
+						{
+							"key": "pattern",
+							"value": "av"
+						}
+					]
+				},
+				"description": "Buscar posibles amigos en la red por nombre (patrón) "
+			},
+			"response": []
+		},
+		{
+			"name": "NO FUNCIONA http://localhost:8080/UPMSocial/api/amigos",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"idUsaurio1\": \"12\",\n    \"idUsuario2\": \"13\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/UPMSocial/api/amigos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"UPMSocial",
+						"api",
+						"amigos"
+					]
+				},
+				"description": "Añadir un nuevo amigo\n\nNo funciona bien"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/UPMSocial/api/amigos/13",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/UPMSocial/api/amigos/13",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"UPMSocial",
+						"api",
+						"amigos",
+						"13"
+					]
+				},
+				"description": "Eliminar un amigo "
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/UPMSocial/api/amigos/12?pattern=av&offset=1&count=2",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/UPMSocial/api/amigos/12?pattern=av&offset=1&count=2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"UPMSocial",
+						"api",
+						"amigos",
+						"12"
+					],
+					"query": [
+						{
+							"key": "pattern",
+							"value": "av"
+						},
+						{
+							"key": "offset",
+							"value": "1"
+						},
+						{
+							"key": "count",
+							"value": "2"
+						}
+					]
+				},
+				"description": "Obtener una lista de todos nuestros amigos y filtrar esa lista por nombre o limitar la cantidad de información obtenida por número de amigos (e.g. los 10 primeros amigos, los amigos entre el 11 y el 20, etc.) "
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/UPMSocial/api/usuarios/9",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/xml"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"descripcion\": \"He vuelto a hacer PUT\",\n   \t\"id\": 9,\n   \t\"nombre\": \"Javier\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/UPMSocial/api/usuarios/9",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"UPMSocial",
+						"api",
+						"usuarios",
+						"9"
+					]
+				},
+				"description": "Cambiar datos de nuestro perfil (excepto el nombre de usuario) "
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/UPMSocial/api/usuarios/11",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/UPMSocial/api/usuarios/11",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"UPMSocial",
+						"api",
+						"usuarios",
+						"11"
+					]
+				},
+				"description": "Borrar nuestro perfil de la red social "
+			},
+			"response": []
+		},
+		{
+			"name": "EXTRA http://localhost:8080/UPMSocial/api/estados/3",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/UPMSocial/api/estados/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"UPMSocial",
+						"api",
+						"estados",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/UPMSocial/api/estados/amigos/12?offset=1&count=2&iniDate=2018-05-15&lastDate=2018-05-21",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/UPMSocial/api/estados/amigos/12?offset=1&count=2&iniDate=2018-05-15&lastDate=2018-05-21",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"UPMSocial",
+						"api",
+						"estados",
+						"amigos",
+						"12"
+					],
+					"query": [
+						{
+							"key": "offset",
+							"value": "1"
+						},
+						{
+							"key": "count",
+							"value": "2"
+						},
+						{
+							"key": "iniDate",
+							"value": "2018-05-15"
+						},
+						{
+							"key": "lastDate",
+							"value": "2018-05-21"
+						}
+					]
+				},
+				"description": "Consultar los últimos estados de nuestros amigos: obtener una lista de los últimos estados de todos mis amigos, pudiendo filtrar estos estados por fecha (último estado antes de cierta fecha). Poder limitar la cantidad de información obtenida por número de estados (e.g. los 10 primeros elementos, los elementos entre el 11 y el 20, etc.). "
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/UPMSocial/api/estados/amigos/12/filtrar?pattern=pr&offset=1&count=2",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/UPMSocial/api/estados/amigos/12/filtrar?pattern=pr&offset=1&count=2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"UPMSocial",
+						"api",
+						"estados",
+						"amigos",
+						"12",
+						"filtrar"
+					],
+					"query": [
+						{
+							"key": "pattern",
+							"value": "pr"
+						},
+						{
+							"key": "offset",
+							"value": "1"
+						},
+						{
+							"key": "count",
+							"value": "2"
+						}
+					]
+				},
+				"description": "Buscar en todos los estados de nuestros amigos por contenido –contiene un determinado texto-. Poder limitar la cantidad de información obtenida por número de estados (e.g. los 10 primeros elementos, los elementos entre el 11 y el 20, etc.)."
+			},
+			"response": []
+		}
+	]
+}
